@@ -2,64 +2,124 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Netflix by Luis Luna</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Link de Fontawesone -->
-  <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
-  <!-- Link del style.css -->
-  <link rel="stylesheet" type="text/css" href="../src/style.css">
-</head>
-<body>
-  <!-- <div> de Responsividad -->
-  <div class="responsive">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Netflix by Luis Luna</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Link de Fontawesone -->
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"
+      integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Link del style.css -->
+    <link rel="stylesheet" type="text/css" href="../src/style.css" />
+  </head>
+  <body>
+    <!-- <div> de Responsividad -->
+    <div class="responsive">
+      <!--Encabezado-->
+      <header>
+        <!-- Netflix Logo -->
+        <div class="netflixLogo">
+          <a id="logo" href="#home"
+            ><img src="../src/img/netflix_logo.png" alt="Logo Image"
+          /></a>
+        </div>
+        <nav class="main-nav">
+          <a href="#home">Home</a>
+          <a href="#tvShows">TV Shows</a>
+          <a href="#movies">Películas</a>
+          <a href="#originals">Originales</a>
+          <a href="#">Añadidas recientemente</a>
+        </nav>
+        <nav class="sub-nav">
+          <!-- Simbolo de Busqueda -->
+          <a href="#"><i class="fas fa-search sub-nav-logo"></i></a>
+          <!-- Simbolo de Campana -->
+          <a href="#"><i class="fas fa-bell sub-nav-logo"></i></a>
+          <a href="#">Cuenta</a>
+        </nav>
+      </header>
+      <!-- Fin del Encabezado-->
 
-    <!--Encabezado-->
-    <header>
-      <!-- Netflix Logo -->
-      <div class="netflixLogo">
-        <a id="logo" href="#home"><img src="../src/img/netflix_logo.png" alt="Logo Image"></a>
-      </div>      
-      <nav class="main-nav">                
-        <a href="#home">Home</a>
-        <a href="#tvShows">TV Shows</a>
-        <a href="#movies">Películas</a>
-        <a href="#originals">Originales</a>
-        <a href="#">Añadidas recientemente</a>      
-      </nav>
-      <nav class="sub-nav">
-        <!-- Simbolo de Busqueda -->
-        <a href="#"><i class="fas fa-search sub-nav-logo"></i></a>
-        <!-- Simbolo de Campana -->
-        <a href="#"><i class="fas fa-bell sub-nav-logo"></i></a>
-        <a href="#">Cuenta</a>        
-      </nav>      
-    </header>
-    <!-- Fin del Encabezado-->
-    
-    <!-- Video de Stranger Things -->
-    <div class="header content">
-      <div class="header-video">
-        <video src="../src/Stranger Things 4 _ Volumen 1_ Tráiler final _ Netflix.mp4"  loop></video>
+      <!-- Video de Stranger Things -->
+      <div class="header content">
+        <div class="header-video">
+          <video
+            src="../src/Stranger Things 4 _ Volumen 1_ Tráiler final _ Netflix.mp4"
+            loop
+          ></video>
+        </div>
+        <!-- Contenedor del header -->
+        <div class="header-content">
+          <!-- Logo de Stranger Things -->
+          <img
+            src="../src/Stranger Things 4 .png"
+            style="width: 300px; margin-top: 250px;"
+          />
+          <!-- Sinopsis de Stranger Things -->
+          <p>
+            Luego de seis meses después de la batalla en el centro comercial
+            Starcourt, que trajo terror y destrucción a Hawkins. Luchando contra
+            las secuelas, nuestro grupo de amigos está separado por primera vez
+            y tiene que afrontar las complejidades del instituto, lo que no les
+            pone las cosas nada fáciles. En este momento, el más vulnerable de
+            todos, surge una nueva y terrorífica amenaza sobrenatural que
+            representa un nuevo y horrible misterio que, si consiguen resolver,
+            podría poner fin a los horrores del Upside Down.
+          </p>
+        </div>
       </div>
-      <!-- Contenedor del header -->
-      <div class="header-content">
-        <!-- Logo de Stranger Things -->
-        <img src="../src/Stranger Things 4 .png" style="width: 300px; margin-top: 250px;">
-        <!-- Sinopsis de Stranger Things -->
-        <p>Luego de seis meses después de la batalla en el centro comercial Starcourt, que trajo terror y destrucción a Hawkins. Luchando contra las secuelas, nuestro grupo de amigos está separado por primera vez y tiene que afrontar las complejidades del instituto, lo que no les pone las cosas nada fáciles. En este momento, el más vulnerable de todos, surge una nueva y terrorífica amenaza sobrenatural que representa un nuevo y horrible misterio que, si consiguen resolver, podría poner fin a los horrores del Upside Down.</p>
-      
-      </div>
-    </div>
 
-    <!-- container Principal -->
-    <section class="main-container" >
+      <!-- container Principal -->
+      <section class="main-container">
+        <div class="location" id="home">
+          <h1 id="home">Popular en Netflix</h1>
+
+          <div class="carousel">
+            <div class="carousel-items">
+              <div class="box">
+                <a href=""><img src="../src/img/dahmer_1200x800.png"/></a>
+                <a href=""><img src="../src/img/you_1200x800.png"/></a>
+                <a href=""><img src="../src/img/Pinocchio_1200x800.png"/></a>
+                <a href=""><img src="../src/img/squid_game_1200x800.png"/></a>
+                <a href=""
+                  ><img src="../src/img/la_casa_de_papel_1200x800.png"
+                /></a>
+                <a href=""><img src="../src/img/the_crown_1200x800.png"/></a>
+                <a href=""><img src="../src/img/lupin_1200x800.png" alt=""/></a>
+                <a href=""
+                  ><img src="../src/img/narcos_1200x800.png" alt=""
+                /></a>
+                <a href=""
+                  ><img
+                    src="../src/img/how_to_sell_drug_on_internet_1200x800.png"
+                    alt=""
+                /></a>
+                <a href=""
+                  ><img src="../src/img/house_of_cards_1200x800.png" alt=""
+                /></a>
+                <a href=""
+                  ><img src="../src/img/black_mirror_1200x800.png" alt=""
+                /></a>
+                <a href=""
+                  ><img src="../src/img/breaking_bad_1200x800.png" alt=""
+                /></a>
+              </div>
+              <div class="prev-button">Prev</div>
+              <div class="next-button">Next</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- <section class="main-container">
       <div class="location" id="home">
           <h1 id="home">Popular en Netflix</h1>
-          <div class="box">
-            <!-- Primera línea de Populares en Netflix -->
+          
+         
             <a href=""><img src="../src/img/dahmer_1200x800.png" alt=""></a>
             <a href=""><img src="../src/img/you_1200x800.png" alt=""></a>
             <a href=""><img src="../src/img/Pinocchio_1200x800.png" alt=""></a>
@@ -123,42 +183,40 @@
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o4.PNG?raw=true" alt=""></a>
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o5.PNG?raw=true" alt=""></a>
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o6.PNG?raw=true" alt=""></a>                
-      </div>
-     
-    <!-- END OF MAIN CONTAINER -->
+      </div> -->
 
-    <!-- LINKS -->
-    <section class="link">
-      <div class="logos">
-        <a href="#"><i class="fab fa-facebook-square fa-2x logo"></i></a>
-        <a href="#"><i class="fab fa-instagram fa-2x logo"></i></a>
-        <a href="#"><i class="fab fa-twitter fa-2x logo"></i></a>
-        <a href="#"><i class="fab fa-youtube fa-2x logo"></i></a>
-      </div>
-      <div class="sub-links">
-        <ul>
-          <li><a href="#">Audio y Subtítulos</a></li>
-          <li><a href="#">Audio Descriptivo</a></li>
-          <li><a href="#">Ayuda</a></li>
-          <li><a href="#">Giftcards</a></li>
-          <li><a href="#">Media Center</a></li>
-          <li><a href="#">Inversiones</a></li>
-          <li><a href="#">Bolsa de trabajo</a></li>
-          <li><a href="#">Terminos de uso</a></li>
-          <li><a href="#">Privacidad</a></li>
-          <li><a href="#">Noticias Legales</a></li>
-          <li><a href="#">Informacion Corporativa</a></li>
-          <li><a href="#">Contactanos</a></li>
-        </ul>
-      </div>
-    </section>
-    <!-- END OF LINKS -->
+      <!-- LINKS -->
+      <section class="link">
+        <div class="logos">
+          <a href="#"><i class="fab fa-facebook-square fa-2x logo"></i></a>
+          <a href="#"><i class="fab fa-instagram fa-2x logo"></i></a>
+          <a href="#"><i class="fab fa-twitter fa-2x logo"></i></a>
+          <a href="#"><i class="fab fa-youtube fa-2x logo"></i></a>
+        </div>
+        <div class="sub-links">
+          <ul>
+            <li><a href="#">Audio y Subtítulos</a></li>
+            <li><a href="#">Audio Descriptivo</a></li>
+            <li><a href="#">Ayuda</a></li>
+            <li><a href="#">Giftcards</a></li>
+            <li><a href="#">Media Center</a></li>
+            <li><a href="#">Inversiones</a></li>
+            <li><a href="#">Bolsa de trabajo</a></li>
+            <li><a href="#">Terminos de uso</a></li>
+            <li><a href="#">Privacidad</a></li>
+            <li><a href="#">Noticias Legales</a></li>
+            <li><a href="#">Informacion Corporativa</a></li>
+            <li><a href="#">Contactanos</a></li>
+          </ul>
+        </div>
+      </section>
+      <!-- END OF LINKS -->
 
-    <!-- FOOTER -->
-    <footer>
-      <p>&copy 1997-2018 Netflix, Inc.</p>
-      <p>Luis Luna &copy 2023</p>
-    </footer>
-  </div>
-</body>
+      <!-- FOOTER -->
+      <footer>
+        <p>&copy 1997-2018 Netflix, Inc.</p>
+        <p>Luis Luna &copy 2023</p>
+      </footer>
+    </div>
+  </body>
 </html>
