@@ -67,7 +67,7 @@ body {
   overflow: hidden;
 }
 .carousel-items {
-  display: flex;
+  /* display: flex; */
   width: 400%;
   height: 100%;
   transition: transform 1s;
@@ -95,14 +95,14 @@ body {
 
 /* --------------------------------------------------- */
 
-img {
+/* img {
   max-width: 100%;
 }
 
 .responsive {
   margin: 0;
   padding: 0;
-}
+} */
 
 /* HEADER */
 header {
@@ -198,6 +198,7 @@ header {
 }
 
 /* LINKS */
+
 .link {
   padding: 50px;
 }
@@ -344,3 +345,302 @@ footer {
     font-size: 15px;
   }
 } */
+
+/* -------------------------------------------------------------------------- */
+
+@mixin flex(
+  $dir: row,
+  $wrap: nowrap,
+  $ai: center,
+  $jc: flex-start,
+  $ac: center
+) {
+  display: flex;
+  flex-direction: $dir;
+  flex-wrap: $wrap;
+  align-items: $ai;
+  justify-content: $jc;
+  align-content: $ac;
+}
+@mixin imagen(
+  $url: "",
+  $size: cover,
+  $posicion: center,
+  $repeat: no-repeat,
+  $parallax: false
+) {
+  @if $url != "" {
+    background-image: url($url);
+  }
+  background-size: $size;
+  background-position: $posicion;
+  background-repeat: $repeat;
+  @if $parallax == true {
+    background-attachment: fixed;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+body {
+  overflow-x: hidden;
+  color: #fff;
+  background-color: #141414;
+  margin: 0 auto;
+  * {
+    font-family: Arial, sans-serif;
+  }
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+  a {
+    color: #666;
+    text-decoration: none;
+  }
+  ul,
+  li {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+}
+
+main {
+  @include flex(column, $ai: flex-start, $jc: center);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+section {
+  width: 100%;
+  transition: ease all 0.5s;
+  &.hidden {
+    opacity: 0;
+    transition: none;
+    &:nth-child(odd) {
+      transform: translateX(-50%);
+    }
+    &:nth-child(even) {
+      transform: translateX(50%);
+    }
+  }
+}
+.container {
+  width: 90%;
+  padding: 25px 0;
+  margin: 0 auto;
+}
+
+.header {
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+.moviesSection {
+  &:not(.top10) {
+    filter: blur(8px);
+  }
+  &.top10 {
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 5%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, #141414);
+    }
+    .moviesWrapper {
+      .movie {
+        margin: 0 10px;
+        counter-increment: indexs;
+        cursor: pointer;
+        &:before {
+          content: counter(indexs);
+          width: 102px;
+          height: 160px;
+          line-height: 147px;
+          color: #000;
+          font-size: 213px;
+          font-weight: 900;
+          -webkit-text-stroke: 5px #595959;
+        }
+        .thumb {
+          width: 110px;
+          height: 160px;
+        }
+      }
+    }
+  }
+  .moviesWrapper {
+    @include flex;
+    counter-reset: indexs;
+    .movie {
+      @include flex;
+      margin: 0 2px;
+      position: relative;
+      .thumb {
+        @include imagen;
+        width: 200px;
+        height: 120px;
+        border-radius: 3px;
+      }
+    }
+  }
+}
+
+#movieModal {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 350px;
+  border-radius: 5px;
+  background-color: #141414;
+  transform: translateY(-50%);
+  box-shadow: 0 2px 10px 0 #000;
+  z-index: 1000;
+  transition: ease all 0.3s;
+  &.centered {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &.righted {
+    left: 100%;
+    transform: translate(-100%, -50%);
+  }
+  &.hidden {
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  .portada {
+    @include imagen;
+    width: 100%;
+    height: 200px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .info {
+    padding: 20px;
+    .botones,
+    .datos,
+    .tags {
+      @include flex;
+    }
+    .botones {
+      .boton {
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+        border-radius: 50%;
+        border: 2px solid #595959;
+        background-color: rgba(#fff, 0.05);
+        box-sizing: border-box;
+        position: relative;
+        &:not(.play) {
+          &:hover {
+            &:before {
+              content: attr(data-tooltip);
+              position: absolute;
+              bottom: 100%;
+              left: 50%;
+              width: max-content;
+              padding: 10px 20px;
+              border-radius: 3px;
+              color: #000;
+              font-size: 14px;
+              font-weight: 600;
+              background-color: #fff;
+              transform: translate(-50%, -18px);
+              box-shadow: 0 2px 10px 0 #000;
+            }
+            &:after {
+              content: "";
+              display: block;
+              position: absolute;
+              top: 0;
+              transform: translateY(-18px);
+              border-top: 10px solid #fff;
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+            }
+          }
+        }
+        &:not(.arrow) {
+          margin-right: 10px;
+        }
+        &.arrow {
+          margin-left: auto;
+        }
+        &.play {
+          border-color: #fff;
+          background-color: #fff;
+          svg {
+            path {
+              fill: #000;
+              stroke-width: 0;
+            }
+          }
+        }
+        svg {
+          width: 100%;
+          height: 100%;
+          path {
+            fill: none;
+            stroke: #fff;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+          }
+        }
+      }
+    }
+    .datos {
+      margin: 20px 0;
+      font-weight: 600;
+      .match {
+        color: #46d369;
+      }
+      .clasificacion {
+        margin: 0 10px;
+        padding: 4px 8px;
+        font-size: 14px;
+        border: 1px solid #fff;
+      }
+    }
+    .tags {
+      flex-wrap: wrap;
+      font-weight: 600;
+      .tag {
+        margin: 5px 5px 5px 0;
+        &:not(:first-child) {
+          &:before {
+            content: "\2022";
+            margin-right: 5px;
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .moviesSection {
+    &.top10 {
+      .moviesWrapper {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        &::-webkit-scrollbar {
+          width: 0;
+          height: 0;
+        }
+      }
+    }
+  }
+}
